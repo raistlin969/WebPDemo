@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MADWebPTableViewController.h
 //  WebPDemo
 //
 //  Created by Michael Davidson on 5/7/15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MADWebPTableViewController : UITableViewController
 
+- (void)saveFilenames;
 
 @end
-
