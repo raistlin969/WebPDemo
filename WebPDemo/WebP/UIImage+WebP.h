@@ -9,6 +9,8 @@
 
 #import <WebP/decode.h>
 #import <WebP/encode.h>
+#import <UIKit/UIKit.h>
+
 @interface UIImage (WebP)
 
 - (NSData *)dataWebPWithQuality:(float)quality;//quality = 0..100

@@ -9,6 +9,7 @@
 #import "MADWebPTableViewController.h"
 #import "MADWebPManager.h"
 #import "MADPhotosCollectionViewController.h"
+#import "MADPhotoViewController.h"
 
 @import Photos;
 
@@ -16,6 +17,7 @@
 
 @property (strong, nonatomic)MADWebPManager *webPManager;
 @property (strong, nonatomic)PHFetchResult *allPhotosFetchResult;
+@property (strong, nonatomic)UIImage *selectedImage;
 
 @end
 
@@ -27,11 +29,6 @@
     if(self)
     {
         _webPManager = [[MADWebPManager alloc]init];
-        NSData *nameData = [[NSUserDefaults standardUserDefaults] objectForKey:@"names"];
-
-        //if no data was loaded, than this is the first time running the program
-        if(nameData != nil)
-            _webPManager.webPFiles = [NSKeyedUnarchiver unarchiveObjectWithData:nameData];
 
         PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
         if(status != PHAuthorizationStatusAuthorized)
@@ -54,17 +51,6 @@
     PHFetchOptions *options = [PHFetchOptions new];
     options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
     _allPhotosFetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
-}
-
-- (void)dealloc
-{
-    [self saveFilenames];
-}
-
-- (void)saveFilenames
-{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.webPManager.webPFiles];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"names"];
 }
 
 - (void)viewDidLoad {
@@ -103,8 +89,11 @@
     return cell;
 }
 
-
-
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedImage = [self.webPManager retrieveImageAtIndex:indexPath.row];
+    return indexPath;
+}
 
 #pragma mark - Navigation
 
@@ -116,6 +105,41 @@
     {
         MADPhotosCollectionViewController *viewController = segue.destinationViewController;
         viewController.allPhotosFetchResult = self.allPhotosFetchResult;
+    }
+    else if([[segue identifier] isEqualToString:@"ShowWebPPhoto"])
+    {
+        MADPhotoViewController *viewController = segue.destinationViewController;
+        viewController.image = self.selectedImage;
+    }
+}
+
+- (IBAction)prepareForUnwind:(UIStoryboardSegue *)segue
+{
+    if([[segue identifier] isEqualToString:@"ImageSelected"])
+    {
+        MADPhotosCollectionViewController *viewController = segue.sourceViewController;
+        //get the selected asset from the controller, it will be nil if the user canceled
+
+        PHAsset *asset = viewController.selectedAsset;
+        if(asset)
+        {
+            PHImageManager *manager = [PHImageManager defaultManager];
+            [manager requestImageForAsset:asset
+                               targetSize:CGSizeMake(128.0, 128.0) contentMode:PHImageContentModeAspectFill
+                                  options:nil
+                            resultHandler:^(UIImage *result, NSDictionary *info)
+             {
+                 //the handler may be called more than once.  The first call may be a low quality image, so check for that
+                 NSNumber *degraded = info[PHImageResultIsDegradedKey];
+                 if([degraded  isEqual: @0])
+                 {
+                     NSUInteger count = self.webPManager.webPFiles.count;
+                     NSString *name = [NSString stringWithFormat:@"Photo_%lu", count];
+                     [self.webPManager addImage:result filename:name];
+                     [self.tableView reloadData];
+                 }
+             }];
+        }
     }
 }
 

@@ -12,6 +12,7 @@
 
 @interface MADPhotosCollectionViewController : UICollectionViewController
 
-@property (weak, nonatomic)PHFetchResult *allPhotosFetchResult;
+@property (strong, nonatomic)PHFetchResult *allPhotosFetchResult;
+@property (strong, nonatomic)PHAsset *selectedAsset;
 
 @end

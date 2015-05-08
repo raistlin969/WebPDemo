@@ -9,6 +9,12 @@
 #import "MADWebPManager.h"
 #import "WebP/UIImage+WebP.h"
 
+@interface MADWebPManager()
+
+@property (strong, nonatomic)NSMutableArray *webPData;
+
+@end
+
 @implementation MADWebPManager
 
 - (instancetype)init
@@ -17,14 +23,17 @@
     if(self)
     {
         _webPFiles = [[NSMutableArray alloc] init];
+        _webPData = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)addImage:(UIImage *)image filename:(NSString *)filename
 {
-    if([image writeWebPLosslessToDocumentsWithFileName:filename])
+    NSData *data = [image dataWebPWithQuality:0.75];
+    if(data)
     {
+        [self.webPData addObject:data];
         [self.webPFiles addObject:filename];
     }
 }
@@ -34,8 +43,8 @@
     UIImage *image = nil;
     if(index <= self.webPFiles.count)
     {
-        NSString *filename = self.webPFiles[index];
-        image = [UIImage imageWithWebPAtPath:filename];
+        NSData *data = self.webPData[index];
+        image = [UIImage imageWithWebPData:data];
     }
     return image;
 }

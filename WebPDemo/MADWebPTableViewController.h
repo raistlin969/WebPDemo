@@ -10,6 +10,4 @@
 
 @interface MADWebPTableViewController : UITableViewController
 
-- (void)saveFilenames;
-
 @end

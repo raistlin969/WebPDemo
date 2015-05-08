@@ -15,10 +15,12 @@
 		99C2CE051AFC0C5D006C26C9 /* WebPDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE041AFC0C5D006C26C9 /* WebPDemoTests.m */; };
 		99C2CE101AFC0DB6006C26C9 /* MADWebPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE0F1AFC0DB6006C26C9 /* MADWebPTableViewController.m */; };
 		99C2CE131AFC1F38006C26C9 /* MADWebPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE121AFC1F38006C26C9 /* MADWebPManager.m */; };
-		99C2CE161AFC1F99006C26C9 /* WebP in Resources */ = {isa = PBXBuildFile; fileRef = 99C2CE141AFC1F99006C26C9 /* WebP */; };
 		99C2CE171AFC1F99006C26C9 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C2CE151AFC1F99006C26C9 /* WebP.framework */; };
 		99C2CE1A1AFC3780006C26C9 /* MADPhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE191AFC3780006C26C9 /* MADPhotosCollectionViewController.m */; };
 		99C2CE1D1AFC3843006C26C9 /* MADPhotoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE1C1AFC3843006C26C9 /* MADPhotoViewCell.m */; };
+		99C2CE201AFD03D5006C26C9 /* MADPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE1F1AFD03D5006C26C9 /* MADPhotoViewController.m */; };
+		99C2CE271AFD10CD006C26C9 /* ImageToWebPDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE241AFD10CD006C26C9 /* ImageToWebPDataTransformer.m */; };
+		99C2CE281AFD10CD006C26C9 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C2CE261AFD10CD006C26C9 /* UIImage+WebP.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,12 +49,17 @@
 		99C2CE0F1AFC0DB6006C26C9 /* MADWebPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADWebPTableViewController.m; sourceTree = "<group>"; };
 		99C2CE111AFC1F38006C26C9 /* MADWebPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MADWebPManager.h; sourceTree = "<group>"; };
 		99C2CE121AFC1F38006C26C9 /* MADWebPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADWebPManager.m; sourceTree = "<group>"; };
-		99C2CE141AFC1F99006C26C9 /* WebP */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebP; sourceTree = "<group>"; };
 		99C2CE151AFC1F99006C26C9 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		99C2CE181AFC3780006C26C9 /* MADPhotosCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MADPhotosCollectionViewController.h; sourceTree = "<group>"; };
 		99C2CE191AFC3780006C26C9 /* MADPhotosCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADPhotosCollectionViewController.m; sourceTree = "<group>"; };
 		99C2CE1B1AFC3843006C26C9 /* MADPhotoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MADPhotoViewCell.h; sourceTree = "<group>"; };
 		99C2CE1C1AFC3843006C26C9 /* MADPhotoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADPhotoViewCell.m; sourceTree = "<group>"; };
+		99C2CE1E1AFD03D5006C26C9 /* MADPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MADPhotoViewController.h; sourceTree = "<group>"; };
+		99C2CE1F1AFD03D5006C26C9 /* MADPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MADPhotoViewController.m; sourceTree = "<group>"; };
+		99C2CE231AFD10CD006C26C9 /* ImageToWebPDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageToWebPDataTransformer.h; path = WebP/ImageToWebPDataTransformer.h; sourceTree = "<group>"; };
+		99C2CE241AFD10CD006C26C9 /* ImageToWebPDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageToWebPDataTransformer.m; path = WebP/ImageToWebPDataTransformer.m; sourceTree = "<group>"; };
+		99C2CE251AFD10CD006C26C9 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+WebP.h"; path = "WebP/UIImage+WebP.h"; sourceTree = "<group>"; };
+		99C2CE261AFD10CD006C26C9 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+WebP.m"; path = "WebP/UIImage+WebP.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +102,13 @@
 		99C2CDE71AFC0C5D006C26C9 /* WebPDemo */ = {
 			isa = PBXGroup;
 			children = (
-				99C2CE141AFC1F99006C26C9 /* WebP */,
+				99C2CE221AFD10BB006C26C9 /* WebP */,
 				99C2CE151AFC1F99006C26C9 /* WebP.framework */,
 				99C2CDEC1AFC0C5D006C26C9 /* AppDelegate.h */,
 				99C2CDED1AFC0C5D006C26C9 /* AppDelegate.m */,
 				99C2CDF21AFC0C5D006C26C9 /* Main.storyboard */,
+				99C2CE1E1AFD03D5006C26C9 /* MADPhotoViewController.h */,
+				99C2CE1F1AFD03D5006C26C9 /* MADPhotoViewController.m */,
 				99C2CE111AFC1F38006C26C9 /* MADWebPManager.h */,
 				99C2CE121AFC1F38006C26C9 /* MADWebPManager.m */,
 				99C2CDF51AFC0C5D006C26C9 /* Images.xcassets */,
@@ -139,6 +148,17 @@
 				99C2CE031AFC0C5D006C26C9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		99C2CE221AFD10BB006C26C9 /* WebP */ = {
+			isa = PBXGroup;
+			children = (
+				99C2CE231AFD10CD006C26C9 /* ImageToWebPDataTransformer.h */,
+				99C2CE241AFD10CD006C26C9 /* ImageToWebPDataTransformer.m */,
+				99C2CE251AFD10CD006C26C9 /* UIImage+WebP.h */,
+				99C2CE261AFD10CD006C26C9 /* UIImage+WebP.m */,
+			);
+			name = WebP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +243,6 @@
 			files = (
 				99C2CDF41AFC0C5D006C26C9 /* Main.storyboard in Resources */,
 				99C2CDF91AFC0C5D006C26C9 /* LaunchScreen.xib in Resources */,
-				99C2CE161AFC1F99006C26C9 /* WebP in Resources */,
 				99C2CDF61AFC0C5D006C26C9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,11 +261,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99C2CE271AFD10CD006C26C9 /* ImageToWebPDataTransformer.m in Sources */,
+				99C2CE281AFD10CD006C26C9 /* UIImage+WebP.m in Sources */,
 				99C2CDEE1AFC0C5D006C26C9 /* AppDelegate.m in Sources */,
 				99C2CDEB1AFC0C5D006C26C9 /* main.m in Sources */,
 				99C2CE1D1AFC3843006C26C9 /* MADPhotoViewCell.m in Sources */,
 				99C2CE131AFC1F38006C26C9 /* MADWebPManager.m in Sources */,
 				99C2CE101AFC0DB6006C26C9 /* MADWebPTableViewController.m in Sources */,
+				99C2CE201AFD03D5006C26C9 /* MADPhotoViewController.m in Sources */,
 				99C2CE1A1AFC3780006C26C9 /* MADPhotosCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

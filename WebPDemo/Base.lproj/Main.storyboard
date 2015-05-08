@@ -18,6 +18,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JbN-Oo-CqY" id="2uf-8G-a5h">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DOU-Cw-ied" kind="show" identifier="ShowWebPPhoto" id="UJW-jP-wLn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -27,11 +30,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="mSP-Pc-z1a">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="35J-B0-pgP">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nY9-XQ-f9x">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="nY9-XQ-f9x">
                                 <rect key="frame" x="-23" y="-15" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Browse">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="R8v-EI-AqW" kind="show" identifier="ShowPhotoCollection" id="qr3-1t-GeT"/>
@@ -43,6 +52,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3l-31-ozT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1291" y="534"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="UWg-Fo-V3h">
+            <objects>
+                <viewController id="DOU-Cw-ied" customClass="MADPhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dXR-gE-fsZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugx-nd-65u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jot-vp-N4w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sJp-B7-f8g">
+                                <rect key="frame" x="236" y="236" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="VBy-LU-ffl"/>
+                                    <constraint firstAttribute="height" constant="128" id="raZ-ZM-83Z"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="sJp-B7-f8g" secondAttribute="centerY" id="Rdt-8O-5k6"/>
+                            <constraint firstAttribute="centerX" secondItem="sJp-B7-f8g" secondAttribute="centerX" id="qDH-Re-m0f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="sJp-B7-f8g" id="lF2-AI-vsS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azu-nw-bdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2084" y="-217"/>
         </scene>
         <!--Photos Collection View Controller-->
         <scene sceneID="OLI-4Q-TKx">
@@ -88,10 +131,14 @@
                             <outlet property="delegate" destination="R8v-EI-AqW" id="QoV-RD-QZR"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="kpU-gX-fkS" kind="unwind" identifier="ImageSelected" unwindAction="prepareForUnwind:" id="nwN-6F-dEa"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZ8-nY-MaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="kpU-gX-fkS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2024" y="534"/>
+            <point key="canvasLocation" x="2091" y="534"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ntw-yS-UFK">
