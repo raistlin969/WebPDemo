@@ -30,7 +30,7 @@
 
 - (void)addImage:(UIImage *)image filename:(NSString *)filename
 {
-    NSData *data = [image dataWebPWithQuality:0.75];
+    NSData *data = [image dataWebPWithQuality:1.0];
     if(data)
     {
         [self.webPData addObject:data];

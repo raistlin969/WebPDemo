@@ -29,19 +29,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="mSP-Pc-z1a">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="35J-B0-pgP">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="nY9-XQ-f9x">
+                        <barButtonItem key="rightBarButtonItem" id="35J-B0-pgP">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nY9-XQ-f9x">
                                 <rect key="frame" x="-23" y="-15" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Browse">
-                                            <attributes>
-                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Browse"/>
                                 <connections>
                                     <segue destination="R8v-EI-AqW" kind="show" identifier="ShowPhotoCollection" id="qr3-1t-GeT"/>
                                 </connections>
