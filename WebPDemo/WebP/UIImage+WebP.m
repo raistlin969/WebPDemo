@@ -122,8 +122,8 @@ static void free_image_data(void *info, const void *data, size_t size)
     size_t ret_size;
     
     if (quality == kWebPLossless) {
-        ret_size = WebPEncodeLosslessRGB(rawData, width, height, stride, &output);
-    }else ret_size = WebPEncodeRGBA(rawData, width, height, stride, quality, &output);
+        ret_size = WebPEncodeLosslessBGR(rawData, (int)width, (int)height, (int)stride, &output);
+    }else ret_size = WebPEncodeBGRA(rawData, (int)width, (int)height, (int)stride, quality, &output);
     
     if (ret_size == 0) {
         NSLog(@"Oops, no data");
